@@ -21,7 +21,7 @@ func triangles(n int) int {
 	return n * (n + 1) / 2
 }
 
-//Finds the smallest triangle number with n divisors
+//Finds the smallest triangle number with n divisors, I think something is wrong here
 func test(n int) int {
 	var smallest int
 	for i := 1; i < 1000000; i++ {
