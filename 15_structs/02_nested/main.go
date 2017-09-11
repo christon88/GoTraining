@@ -19,7 +19,7 @@ func (e employee) scan() string {
 	if e.certification {
 		certified = "certified"
 	}
-	return e.first + e.last + certified
+	return e.first + " " + e.last + " " + certified
 }
 
 func main() {
