@@ -6,7 +6,6 @@ import (
 	"strings"
 )
 
-//Person is exported because changing from caps is tiresome
 type Person struct {
 	First       string
 	Last        string
