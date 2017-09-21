@@ -2,36 +2,28 @@ package main
 
 import (
 	"fmt"
-	"runtime"
+	"math/rand"
 	"sync"
 	"time"
 )
 
 var wg sync.WaitGroup
-
-func init() {
-	runtime.GOMAXPROCS(runtime.NumCPU())
-}
+var counter int
 
 func main() {
 	wg.Add(2)
-	go foo()
-	go bar()
+	go incrementor("foo:")
+	go incrementor("bar:")
 	wg.Wait()
 }
 
-func foo() {
+func incrementor(s string) {
 	for i := 0; i <= 30; i++ {
-		fmt.Println("foo", i)
-		time.Sleep(time.Duration(3 * time.Millisecond))
-	}
-	wg.Done()
-}
-
-func bar() {
-	for i := 0; i <= 30; i++ {
-		fmt.Println("bar", i)
-		time.Sleep(time.Duration(2 * time.Millisecond))
+		x := counter
+		x++
+		time.Sleep(time.Duration(rand.Intn(3)) * time.Millisecond)
+		counter = x
+		fmt.Println(s, i, "Counter: ", counter)
 	}
 	wg.Done()
 }
