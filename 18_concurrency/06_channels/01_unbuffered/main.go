@@ -16,6 +16,7 @@ func main() {
 		}
 	}()
 
+	go func() {
 		for {
 			fmt.Println(<-c)
 			//fmt.Println(c)
