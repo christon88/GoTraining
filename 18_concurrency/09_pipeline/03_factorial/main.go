@@ -3,7 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	for i := range factorial(numbers(20)) {
+	for i := range factorial(numbers(10)) {
 		fmt.Println(i)
 	}
 }
@@ -12,7 +12,9 @@ func numbers(n int) chan int {
 	out := make(chan int)
 	go func() {
 		for i := 1; i <= n; i++ {
-			out <- i
+			for j := 1; j < 20; j++ {
+				out <- j
+			}
 		}
 		close(out)
 	}()
