@@ -19,7 +19,7 @@ func boring(msg string) chan string {
 	go func() {
 		for i := 0; ; i++ {
 			c <- fmt.Sprintf("%s %d", msg, i)
-			time.Sleep(time.Duration(rand.Intn(1000)) * time.Millisecond)
+			time.Sleep(time.Duration(rand.Intn(1500)) * time.Millisecond)
 		}
 	}()
 	return c
